@@ -1,103 +1,80 @@
+import Card from "@/components/Card";
+import Tabs from "@/components/Tabs";
+import { getBlogPosts } from "@/lib/blog";
+import { extractPageProperties } from "@/utils/notion";
 import Image from "next/image";
+import profile from "../../public/images/profile.png";
+import DropdownFilter from "@/components/DropdownFilter";
 
-export default function Home() {
+interface Props {
+  searchParams: Promise<Record<string, string>>;
+}
+
+export default async function Home(props: Props) {
+  const projects = await getBlogPosts();
+
+  const searchParams = await props.searchParams;
+  const selectedTab = searchParams.tag ?? "all";
+
+  const filteredProjects =
+    selectedTab === "all"
+      ? projects
+      : projects.filter((project) =>
+          project.properties?.Tags?.multi_select.some(
+            (tag) => tag.name === selectedTab
+          )
+        );
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <div className="max-w-[1500px] flex flex-col items-center gap-2 md:gap-4 mx-auto py-10 pb-6 md:py-20 px-4 md:text-center text-sm md:text-[15px] text-[#4f576c]">
+        <h1 className="font-semibold text-3xl md:text-5xl text-[var(--foreground)]">
+          프로젝트 아카이브
+        </h1>
+        <div className="flex items-center justify-center gap-1">
+          <div className="relative rounded-full border border-[var(--border-color)] overflow-hidden w-5 md:w-7 aspect-square">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={profile}
+              alt=""
+              fill
+              priority
+              className="object-cover"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          <span>이정은 (Jeongeun Lee)</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <p className="max-w-[860px] mt-8">
+          안녕하세요, 이유 있는 마크업으로 의미 있는 웹을 만드는 퍼블리셔
+          이정은입니다. UI 마크업의 작은 요소도 사용자 경험에 영향을 준다고
+          믿으며, 작은 작업에서도 개선의 여지를 찾고, 더 효율적이고 의미 있는
+          코드를 작성하기 위해 배우고 적용하는 과정을 꾸준히 이어가고 있습니다.
+        </p>
+      </div>
+      <div className="max-w-[1500px] mx-auto flex flex-col items-center gap-6 px-4">
+        <div className="flex items-center justify-start w-full mb-2 md:mb-3.5">
+          <Tabs selectedTab={selectedTab} />
+          <DropdownFilter selectedTab={selectedTab} />
+        </div>
+      </div>
+      <div className="border-t w-full border-[var(--border-color)]">
+        <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[30px] gap-12 pt-6 py-12 px-4">
+          {filteredProjects.map((project) => {
+            const { title, coverImageUrl, slug, tags, description } =
+              extractPageProperties(project);
+
+            return (
+              <Card
+                key={slug}
+                title={title}
+                coverImageUrl={coverImageUrl}
+                slug={slug}
+                tags={tags}
+                description={description}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 }
