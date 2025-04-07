@@ -6,14 +6,12 @@ import { LuSquareArrowOutUpRight } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { tabs } from "@/constants/tabs";
 import { ExtractedPageProperties } from "@/types/notion";
 
 export default function Card({
   title,
   coverImageUrl,
   slug,
-  tags,
   description,
 }: ExtractedPageProperties) {
   const router = useRouter();
@@ -63,21 +61,7 @@ export default function Card({
         </motion.div>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <div className="flex items-center gap-2">
-          <div className="flex items-center">
-            {tags?.map((tag) => {
-              const matchedTab = tabs.find((tab) => tab.id === tag.name);
-
-              return (
-                <div
-                  key={tag.id}
-                  className={`w-3 aspect-square rounded-full border border-[var(--border-color)] ${matchedTab?.color} -ml-1`}
-                />
-              );
-            })}
-          </div>
-          <p className="font-semibold">{title}</p>
-        </div>
+        <p className="font-semibold">{title}</p>
         <p className="text-[#a09f9c] text-[14px]">{description}</p>
       </div>
     </div>

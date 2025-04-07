@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 export default function Comment() {
   const commentRef = useRef<HTMLDivElement>(null);
   const hasMountedRef = useRef(false);
+
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
   const theme = isDark ? "github-dark" : "github-light";

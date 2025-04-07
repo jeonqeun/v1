@@ -1,10 +1,9 @@
 import Card from "@/components/Card";
-import Tabs from "@/components/Tabs";
 import { getBlogPosts } from "@/lib/blog";
 import { extractPageProperties } from "@/utils/notion";
 import Image from "next/image";
 import profile from "../../public/images/profile.png";
-import DropdownFilter from "@/components/DropdownFilter";
+import ProjectTabs from "@/components/ProjectTabs";
 
 interface Props {
   searchParams: Promise<Record<string, string>>;
@@ -43,37 +42,32 @@ export default async function Home(props: Props) {
           </div>
           <span>이정은 (Jeongeun Lee)</span>
         </div>
-        <p className="max-w-[860px] mt-8">
+        <p className="hidden md:block max-w-[860px] mt-8">
           안녕하세요, 이유 있는 마크업으로 의미 있는 웹을 만드는 퍼블리셔
           이정은입니다. UI 마크업의 작은 요소도 사용자 경험에 영향을 준다고
           믿으며, 작은 작업에서도 개선의 여지를 찾고, 더 효율적이고 의미 있는
           코드를 작성하기 위해 배우고 적용하는 과정을 꾸준히 이어가고 있습니다.
         </p>
       </div>
-      <div className="max-w-[1500px] mx-auto flex flex-col items-center gap-6 px-4">
-        <div className="flex items-center justify-start w-full mb-2 md:mb-3.5">
-          <Tabs selectedTab={selectedTab} />
-          <DropdownFilter selectedTab={selectedTab} />
-        </div>
-      </div>
-      <div className="border-t w-full border-[var(--border-color)]">
-        <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[30px] gap-12 pt-6 py-12 px-4">
-          {filteredProjects.map((project) => {
-            const { title, coverImageUrl, slug, tags, description } =
-              extractPageProperties(project);
 
-            return (
-              <Card
-                key={slug}
-                title={title}
-                coverImageUrl={coverImageUrl}
-                slug={slug}
-                tags={tags}
-                description={description}
-              />
-            );
-          })}
-        </div>
+      <ProjectTabs />
+
+      <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[30px] gap-12 pt-6 py-12 px-4">
+        {filteredProjects.map((project) => {
+          const { title, coverImageUrl, slug, tags, description } =
+            extractPageProperties(project);
+
+          return (
+            <Card
+              key={slug}
+              title={title}
+              coverImageUrl={coverImageUrl}
+              slug={slug}
+              tags={tags}
+              description={description}
+            />
+          );
+        })}
       </div>
     </>
   );
