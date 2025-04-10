@@ -33,7 +33,7 @@ const Modal = dynamic(
 
 const Renderer = ({ recordMap, rootPageId }: RendererProps) => {
   return (
-    <div className="notion-text">
+    <div>
       <NotionRenderer
         recordMap={recordMap}
         darkMode={false}

@@ -24,11 +24,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  transition: background 0.3s ease, color 0.3s ease;
+  /* transition: background 0.3s ease, color 0.3s ease; */
 }
 
 .notion {
-  line-height: 1.8 !important;
   color: var(--notion-text-color) !important;
 }
 
@@ -41,6 +40,11 @@ body {
 
 .notion-yellow_background {
   background-color: var(--notion-yellow-background) !important;
+}
+
+.notion-hr {
+  height: 1px;
+  background: var(--border-color);
 }
 
 .no-scrollbar::-webkit-scrollbar {

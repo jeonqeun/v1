@@ -1,13 +1,12 @@
 import Comment from "@/components/Comment";
 import Renderer from "@/components/Renderer";
 import TableOfContents from "@/components/TableOfContents";
-import { getBlogPosts } from "@/lib/blog";
 import { getPageBySlug, getPageData } from "@/lib/notion";
 import { extractPageProperties } from "@/utils/notion";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { IoLogoGithub } from "react-icons/io5";
+import { FaGithub } from "react-icons/fa";
 import { LuExternalLink } from "react-icons/lu";
 
 export default async function Page({
@@ -16,7 +15,6 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const projectSlug = (await params).slug;
-  const projects = await getBlogPosts();
   const project = await getPageBySlug(projectSlug, "project");
 
   if (!project) return notFound();
@@ -25,29 +23,8 @@ export default async function Page({
   const projectData = extractPageProperties(project);
 
   return (
-    <div className="max-w-[1500px] mx-auto py-10 lg:py-16">
+    <div className="max-w-[1500px] mx-auto py-10 lg:py-16 mt-[60px]">
       <div className="lg:flex lg:justify-center lg:gap-20 lg:px-4">
-        <div className="hidden lg:block w-[200px] min-w-[200px] max-w-[200px] sticky top-0 self-start text-[14px] pt-32">
-          <ul>
-            {projects.map((project, idx) => {
-              const { title, slug } = extractPageProperties(project);
-
-              return (
-                <li
-                  key={idx}
-                  className={`transition duration-300 rounded-[4px] hover:text-[#F67373] ${
-                    projectSlug === slug ? "text-[#F67373]" : "text-[#A09F9C]"
-                  }`}
-                >
-                  <Link href={`${slug}`} className="inline-block w-full p-1.5">
-                    {title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
         <div className="max-w-[720px] mx-auto lg:mx-0 overflow-hidden">
           <div className="p-4">
             <div className="flex flex-col gap-4 mb-6">
@@ -57,28 +34,25 @@ export default async function Page({
               <div className="flex items-center justify-between text-[14px] md:text-base">
                 <div className="flex items-center gap-2 text-[#A09F9C]">
                   <span>{"개인 프로젝트"}</span>
-                  <span>{"・"}</span>
+                  <span>{"∙"}</span>
                   <span>{projectData?.date?.slice(0, 9)}</span>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  {!!projectData.githubUrl && (
-                    <Link
-                      href={projectData.githubUrl}
-                      target="_blank"
-                      className="flex items-center justify-center"
-                    >
-                      <IoLogoGithub size={20} />
-                    </Link>
-                  )}
-                  {!!projectData.demoUrl && (
-                    <Link
-                      href={projectData.demoUrl}
-                      target="_blank"
-                      className="flex items-center justify-center"
-                    >
-                      <LuExternalLink size={20} />
-                    </Link>
-                  )}
+
+                <div className="relative flex items-center text-[#3C3C43] dark:text-[#EBEBF5]">
+                  <Link
+                    href="https://jeongeun.hashnode.dev"
+                    target="_blank"
+                    className="p-2 rounded-[8px] hover:bg-[var(--hover-background)] opacity-75 hover:opacity-100 cursor-pointer hover:text-[#24292F]"
+                  >
+                    <LuExternalLink size={20} />
+                  </Link>
+                  <Link
+                    href="https://github.com/jeonoeun"
+                    target="_blank"
+                    className="p-2 rounded-[8px] hover:bg-[var(--hover-background)] opacity-75 hover:opacity-100 cursor-pointer hover:text-[#24292F]"
+                  >
+                    <FaGithub size={20} />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -98,7 +72,6 @@ export default async function Page({
           <Renderer recordMap={recordMap} rootPageId={project.id} />
           <Comment />
         </div>
-
         <TableOfContents recordMap={recordMap} />
       </div>
     </div>

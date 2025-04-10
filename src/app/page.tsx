@@ -25,7 +25,7 @@ export default async function Home(props: Props) {
         );
 
   return (
-    <>
+    <div className="mt-[60px]">
       <div className="max-w-[1500px] flex flex-col items-center gap-2 md:gap-4 mx-auto py-10 pb-6 md:py-20 px-4 md:text-center text-sm md:text-[15px] text-[#4f576c]">
         <h1 className="font-semibold text-3xl md:text-5xl text-[var(--foreground)]">
           프로젝트 아카이브
@@ -42,7 +42,7 @@ export default async function Home(props: Props) {
           </div>
           <span>이정은 (Jeongeun Lee)</span>
         </div>
-        <p className="hidden md:block max-w-[860px] mt-8">
+        <p className="hidden md:block max-w-[860px] mt-8 leading-relaxed">
           안녕하세요, 이유 있는 마크업으로 의미 있는 웹을 만드는 퍼블리셔
           이정은입니다. UI 마크업의 작은 요소도 사용자 경험에 영향을 준다고
           믿으며, 작은 작업에서도 개선의 여지를 찾고, 더 효율적이고 의미 있는
@@ -52,9 +52,9 @@ export default async function Home(props: Props) {
 
       <ProjectTabs />
 
-      <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[30px] gap-12 pt-6 py-12 px-4">
+      <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[30px] gap-12 py-10 px-4">
         {filteredProjects.map((project) => {
-          const { title, coverImageUrl, slug, tags, description } =
+          const { title, coverImageUrl, slug, description } =
             extractPageProperties(project);
 
           return (
@@ -63,12 +63,11 @@ export default async function Home(props: Props) {
               title={title}
               coverImageUrl={coverImageUrl}
               slug={slug}
-              tags={tags}
               description={description}
             />
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
