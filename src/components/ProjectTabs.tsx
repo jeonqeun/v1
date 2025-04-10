@@ -39,7 +39,7 @@ export default function ProjectTabs() {
   }, [selectedTabId]);
 
   return (
-    <div className="w-full flex flex-col border-b border-[var(--border-color)]">
+    <div className="sticky top-[60px] z-40 bg-[var(--background)] w-full flex flex-col border-b border-[var(--border-color)]">
       <div className="w-full items-start justify-center flex px-4">
         <nav
           ref={navRef}

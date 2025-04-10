@@ -7,8 +7,8 @@ import { FaHashnode } from "react-icons/fa6";
 
 export default function Header() {
   return (
-    <header>
-      <div className="flex items-center justify-between max-w-[1500px] h-[72px] mx-auto px-4">
+    <header className="fixed top-0 left-0 z-50 w-full bg-[var(--background)]">
+      <div className="flex items-center justify-between max-w-[1500px] h-[60px] mx-auto px-4">
         <Link href="/">
           <div className="relative w-6 md:w-8 aspect-square">
             <Image src={logo} alt="" fill className="object-cover" />
