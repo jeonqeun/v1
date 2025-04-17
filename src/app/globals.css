@@ -29,6 +29,11 @@ body {
 
 .notion {
   color: var(--notion-text-color) !important;
+  padding: 0 !important;
+}
+
+.notion-full-width {
+  padding: 0 !important;
 }
 
 .notion-quote {
@@ -53,4 +58,9 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.utterances {
+  max-width: 100% !important;
+  width: 100% !important;
 }

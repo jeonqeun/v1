@@ -22,7 +22,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <Header />
           <main>{children}</main>
-          <footer>Footer</footer>
         </ThemeProvider>
       </body>
     </html>

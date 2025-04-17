@@ -41,7 +41,7 @@ export default function Comment() {
   }, [theme]);
 
   return (
-    <div className="p-4 w-full mx-auto mt-8">
+    <div className="mt-20 border-t border-[var(--border-color)] pt-8">
       <div ref={commentRef} />
     </div>
   );

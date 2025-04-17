@@ -23,11 +23,11 @@ export default async function Page({
   const projectData = extractPageProperties(project);
 
   return (
-    <div className="max-w-[1500px] mx-auto py-10 lg:py-16 mt-[60px]">
-      <div className="lg:flex lg:justify-center lg:gap-20 lg:px-4">
-        <div className="max-w-[720px] mx-auto lg:mx-0 overflow-hidden">
-          <div className="p-4">
-            <div className="flex flex-col gap-4 mb-6">
+    <div className="max-w-[1500px] mx-auto pt-[22px] md:pt-20 pb-[64px] md:pb-20 mt-[60px]">
+      <div className="md:flex justify-center gap-20">
+        <div className="overflow-hidden p-4 max-w-[852px]">
+          <div className="mb-6">
+            <div className="flex flex-col gap-3 mb-4">
               <h1 className="font-semibold text-3xl md:text-[44px] leading-[1.3]">
                 {projectData.title}
               </h1>
