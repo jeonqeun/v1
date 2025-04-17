@@ -1,13 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import logo from "../../public/images/logo.svg";
 import { FaGithub, FaInfo } from "react-icons/fa";
 import { FaHashnode } from "react-icons/fa6";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome =
+    pathname === "/" || pathname === "" || pathname.startsWith("/?");
+
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-[var(--background)]">
+    <header
+      className={`fixed top-0 left-0 z-50 w-full bg-[var(--background)] ${
+        isHome ? "" : "border-b border-[var(--border-color)]"
+      }`}
+    >
       <div className="flex items-center justify-between max-w-[1500px] h-[60px] mx-auto px-4">
         <Link href="/">
           <div className="relative w-6 md:w-8 aspect-square">
