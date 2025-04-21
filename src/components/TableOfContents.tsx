@@ -39,7 +39,7 @@ export default function TableOfContents({
   }
 
   return (
-    <div className="hidden lg:block w-[200px] min-w-[200px] max-w-[200px] sticky top-0 self-start text-[14px] pt-32 m-4">
+    <div className="hidden lg:block w-[200px] min-w-[200px] max-w-[200px] sticky top-12 self-start text-[14px] m-4 pt-20">
       <p className="font-semibold pb-2">목차</p>
       <ul>
         {tocItems.map((item) => (

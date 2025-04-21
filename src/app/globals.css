@@ -9,8 +9,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --hover-background: #f7f7f7;
-  /* --hover-background: #f4f4f5; */
+  /* --hover-background: #f7f7f7; */
+  --hover-background: #f4f4f5;
   --border-color: #e5e7eb;
 }
 
@@ -24,7 +24,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  /* transition: background 0.3s ease, color 0.3s ease; */
 }
 
 .notion {
@@ -37,10 +36,7 @@ body {
 }
 
 .notion-quote {
-  background-color: rgb(248, 249, 250);
-  padding: 16px 16px 16px 32px !important;
-  font-size: 17px !important;
-  border-left-color: rgb(32, 201, 151) !important;
+  font-size: 16px !important;
 }
 
 .notion-yellow_background {
