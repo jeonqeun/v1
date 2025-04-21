@@ -4,33 +4,60 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { BsGlobe } from "react-icons/bs";
 import { BiCodeBlock } from "react-icons/bi";
 import { GiConsoleController } from "react-icons/gi";
-import { SiTailwindcss } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiFirebase,
+  SiReactquery,
+  SiFramer,
+  SiTypescript,
+} from "react-icons/si";
 import { FiGrid } from "react-icons/fi";
-import { SiTypescript } from "react-icons/si";
 
 export const tabs = [
-  { label: "All", id: "all", icon: FiGrid },
+  {
+    label: "All",
+    id: "all",
+    icon: FiGrid,
+  },
   {
     label: "Featured",
     id: "featured",
     icon: AiFillStar,
   },
   {
-    label: "Next.js",
-    id: "nextjs",
-    icon: TbBrandNextjs,
-  },
-  { label: "React", id: "react", icon: FaReact },
-  {
     label: "Web Publishing",
     id: "web-publishing",
     icon: BsGlobe,
   },
-  { label: "API", id: "api", icon: BiCodeBlock },
   {
-    label: "Game",
-    id: "game",
-    icon: GiConsoleController,
+    label: "Next.js",
+    id: "nextjs",
+    icon: TbBrandNextjs,
+  },
+  {
+    label: "React",
+    id: "react",
+    icon: FaReact,
+  },
+  {
+    label: "TypeScript",
+    id: "typescript",
+    icon: SiTypescript,
+  },
+  {
+    label: "Firebase",
+    id: "firebase",
+    icon: SiFirebase,
+  },
+  {
+    label: "TanStack Query",
+    id: "tanstack-query",
+    icon: SiReactquery,
+  },
+  {
+    label: "Framer Motion",
+    id: "framer-motion",
+    icon: SiFramer,
   },
   {
     label: "Tailwind CSS",
@@ -38,8 +65,13 @@ export const tabs = [
     icon: SiTailwindcss,
   },
   {
-    label: "TypeScript",
-    id: "typescript",
-    icon: SiTypescript,
+    label: "API",
+    id: "api",
+    icon: BiCodeBlock,
+  },
+  {
+    label: "Game",
+    id: "game",
+    icon: GiConsoleController,
   },
 ];
