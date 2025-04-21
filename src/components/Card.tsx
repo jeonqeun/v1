@@ -13,6 +13,8 @@ export default function Card({
   coverImageUrl,
   slug,
   description,
+  githubUrl,
+  demoUrl,
 }: ExtractedPageProperties) {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
@@ -41,7 +43,7 @@ export default function Card({
           transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <a
-            href="https://github.com/jeonoeun"
+            href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
@@ -50,7 +52,7 @@ export default function Card({
             <FaGithub size={20} />
           </a>
           <a
-            href="https://remonth.vercel.app"
+            href={demoUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
