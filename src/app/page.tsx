@@ -27,7 +27,7 @@ export default async function Home(props: Props) {
   return (
     <div className="mt-[60px]">
       <div className="max-w-[1500px] flex flex-col items-center gap-2 md:gap-4 mx-auto pt-10 md:pt-16 pb-6 md:pb-12 px-4 md:text-center text-sm md:text-[15px] text-[#4f576c]">
-        <h1 className="font-semibold text-3xl md:text-[44px] text-[var(--foreground)]">
+        <h1 className="font-medium text-3xl md:text-[44px] text-[var(--foreground)]">
           프로젝트 아카이브
         </h1>
         <div className="flex items-center justify-center gap-1">
@@ -46,7 +46,7 @@ export default async function Home(props: Props) {
 
       <ProjectTabs />
 
-      <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-x-[30px] gap-12 pt-10 pb-20 px-4">
+      <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[16px] gap-10 pt-10 pb-20 px-4">
         {filteredProjects.map((project) => {
           const {
             title,
