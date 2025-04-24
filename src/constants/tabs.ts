@@ -1,4 +1,4 @@
-import { FaReact } from "react-icons/fa";
+import { FaReact, FaPalette } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { TbBrandNextjs } from "react-icons/tb";
 import { BsGlobe } from "react-icons/bs";
@@ -27,6 +27,11 @@ export const tabs = [
   {
     label: "Web Publishing",
     id: "web-publishing",
+    icon: FaPalette,
+  },
+  {
+    label: "Responsive",
+    id: "responsive",
     icon: BsGlobe,
   },
   {
