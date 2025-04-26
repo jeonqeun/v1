@@ -1,9 +1,9 @@
-import Card from "@/components/Card";
 import { extractPageProperties } from "@/utils/notion";
+import { getProjectList } from "@/lib/notion";
 import Image from "next/image";
 import profile from "../../public/images/profile.png";
-import ProjectTabs from "@/components/ProjectTabs";
-import { getProjectList } from "@/lib/notion";
+import ProjectTabs from "@/components/layout/ProjectTabs";
+import Card from "@/components/common/Card";
 
 interface Props {
   searchParams: Promise<Record<string, string>>;

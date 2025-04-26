@@ -1,7 +1,7 @@
-import Comment from "@/components/Comment";
-import Renderer from "@/components/Renderer";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
-import TableOfContents from "@/components/TableOfContents";
+import Comment from "@/components/common/Comment";
+import ScrollProgressBar from "@/components/common/ScrollProgressBar";
+import Renderer from "@/components/notion/Renderer";
+import TableOfContents from "@/components/notion/TableOfContents";
 import { getPageBySlug, getPageData } from "@/lib/notion";
 import { extractPageProperties } from "@/utils/notion";
 import { notFound } from "next/navigation";

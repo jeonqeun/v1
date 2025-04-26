@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import ThemeToggle from "./ThemeToggle";
-import logo from "../../public/images/logo.svg";
+import logo from "../../../public/images/logo.svg";
 import { FaGithub } from "react-icons/fa";
 import { FaHashnode } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import { CgGirl } from "react-icons/cg";
+import ThemeToggle from "../common/ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
