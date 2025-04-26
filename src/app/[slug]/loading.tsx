@@ -4,18 +4,13 @@ export default function Loading() {
       <div className="md:flex justify-center gap-[34px]">
         <div className="p-4 max-w-[852px] w-full">
           <div className="mb-6">
-            <div className="flex flex-col gap-3 mb-4">
+            <div className="flex flex-col gap-4 mb-4">
               <div className="h-10 md:h-[44px] w-3/4 bg-gray-300 rounded-md" />
-              <div className="flex items-center justify-between text-sm md:text-base">
-                <div className="flex items-center gap-2 text-gray-400">
-                  <div className="w-20 h-5 bg-gray-200 rounded" />
-                  <div className="w-1 h-1 bg-gray-300 rounded-full" />
-                  <div className="w-24 h-5 bg-gray-200 rounded" />
-                </div>
-                <div className="flex gap-2">
-                  <div className="w-8 h-8 bg-gray-200 rounded-full" />
-                  <div className="w-8 h-8 bg-gray-200 rounded-full" />
-                </div>
+
+              <div className="space-y-3">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div key={i} className="h-6 w-full bg-gray-200 rounded" />
+                ))}
               </div>
             </div>
 

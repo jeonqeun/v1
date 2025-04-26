@@ -7,8 +7,6 @@ import logo from "../../public/images/logo.svg";
 import { FaGithub } from "react-icons/fa";
 import { FaHashnode } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
-import MobileNavDropdown from "./MobileNavDropdown";
-import { navItems } from "@/constants/nav";
 import { CgGirl } from "react-icons/cg";
 
 export default function Header() {
@@ -23,30 +21,13 @@ export default function Header() {
       }`}
     >
       <div className="flex items-center justify-between max-w-[1500px] h-[60px] mx-auto px-4">
-        <div className="flex items-center gap-2">
-          <Link href="/">
-            <div className="relative w-6 md:w-8 aspect-square">
-              <Image src={logo} alt="" fill className="object-cover" />
-            </div>
-          </Link>
-          <MobileNavDropdown />
-        </div>
+        <Link href="/">
+          <div className="relative w-6 md:w-8 aspect-square">
+            <Image src={logo} alt="" fill className="object-cover" />
+          </div>
+        </Link>
 
         <div className="flex items-center gap-6">
-          <nav className="hidden md:block">
-            <ul className="flex items-center text-[14px] font-medium">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <Link
-                    href={item.link}
-                    className="inline-block px-3 py-1.5 ml-2 rounded-[8px] hover:bg-[var(--hover-background)] opacity-85 hover:opacity-100"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
           <ThemeToggle />
           <div className="relative flex items-center text-[#3C3C43] dark:text-[#EBEBF5] before:content-[''] before:absolute before:bg-[var(--border-color)] before:w-px before:h-[20px] before:-left-2">
             <Link

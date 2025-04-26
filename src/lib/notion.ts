@@ -11,7 +11,6 @@ export const notionClient = new Client({
 const notion = new NotionAPI();
 
 export const projectDatabaseId = process.env.PROJECT_DATABASE_ID;
-export const dictDatabaseId = process.env.DICT_DATABASE_ID;
 
 export const queryNotionDatabase = async (
   databaseId: string
@@ -40,34 +39,23 @@ export const getProjectList = async (): Promise<NotionPage[]> => {
   return queryNotionDatabase(projectDatabaseId!);
 };
 
-export const getDictList = async (): Promise<NotionPage[]> => {
-  return queryNotionDatabase(dictDatabaseId!);
-};
-
-export const getPageBySlug = cache(
-  async (slug: string, type: "project" | "dict") => {
-    const databaseIdMap = {
-      project: projectDatabaseId!,
-      dict: dictDatabaseId!,
-    };
-
-    const res = await notionClient.databases.query({
-      database_id: databaseIdMap[type],
-      filter: {
-        property: "Slug",
-        rich_text: {
-          equals: slug,
-        },
+export const getPageBySlug = cache(async (slug: string) => {
+  const res = await notionClient.databases.query({
+    database_id: projectDatabaseId!,
+    filter: {
+      property: "Slug",
+      rich_text: {
+        equals: slug,
       },
-    });
+    },
+  });
 
-    if (res.results.length === 0) {
-      throw new Error(`No page found for slug: ${slug}`);
-    }
-
-    return res.results[0] as PageObjectResponse | null;
+  if (res.results.length === 0) {
+    throw new Error(`No page found for slug: ${slug}`);
   }
-);
+
+  return res.results[0] as PageObjectResponse | null;
+});
 
 export const getPageData = async (pageId: string) => {
   return await notion.getPage(pageId);
