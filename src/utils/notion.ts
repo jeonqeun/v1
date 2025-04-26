@@ -26,6 +26,7 @@ export const extractPageProperties = (
   const tags = item.properties?.Tags?.multi_select || [];
   const created = item.properties?.Date?.date?.start || "No date";
   const type = item.properties?.Type?.select?.name || "No type";
+  const color = item.properties?.Type?.select?.color || "No Color";
 
   const iconElement = getIconElement(item.icon);
   const notionCoverUrl = getNotionCoverUrl(item.cover);
@@ -53,5 +54,6 @@ export const extractPageProperties = (
     iconElement,
     demoUrl,
     githubUrl,
+    color,
   };
 };

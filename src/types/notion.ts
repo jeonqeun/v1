@@ -9,6 +9,7 @@ export interface ExtractedPageProperties {
   githubUrl?: string;
   coverImageUrl: string | null;
   iconElement?: string | null | undefined;
+  color?: string;
 }
 
 export interface NotionProperty {
@@ -23,7 +24,7 @@ export interface NotionProperty {
     multi_select: { name: string; id: string }[];
   };
   Type?: {
-    select: { name: string };
+    select: { name: string; color: string };
   };
   Name?: {
     title: { plain_text: string }[];

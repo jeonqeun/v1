@@ -1,16 +1,16 @@
 import Card from "@/components/Card";
-import { getBlogPosts } from "@/lib/blog";
 import { extractPageProperties } from "@/utils/notion";
 import Image from "next/image";
 import profile from "../../public/images/profile.png";
 import ProjectTabs from "@/components/ProjectTabs";
+import { getProjectList } from "@/lib/notion";
 
 interface Props {
   searchParams: Promise<Record<string, string>>;
 }
 
 export default async function Home(props: Props) {
-  const projects = await getBlogPosts();
+  const projects = await getProjectList();
 
   const searchParams = await props.searchParams;
   const selectedTab = searchParams.tag ?? "all";
