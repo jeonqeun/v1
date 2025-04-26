@@ -37,7 +37,7 @@ export default function Card({
         />
 
         <motion.div
-          className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-4 text-lg"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-4 text-lg"
           initial={{ opacity: 0, y: 10 }}
           animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
