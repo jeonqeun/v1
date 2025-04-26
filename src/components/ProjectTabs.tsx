@@ -14,7 +14,7 @@ const transition = {
 
 export default function ProjectTabs() {
   const searchParams = useSearchParams();
-  const selectedTabId = searchParams.get("tag") || tabs[0].id;
+  const selectedTabId = searchParams?.get("tag") || tabs[0].id;
 
   const navRef = useRef<HTMLDivElement>(null);
   const [indicator, setIndicator] = useState<{
