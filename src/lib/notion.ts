@@ -10,8 +10,8 @@ export const notionClient = new Client({
 
 const notion = new NotionAPI();
 
-export const projectDatabaseId = process.env.NOTION_DATABASE_ID;
-export const blogDatabaseId = process.env.NOTION_DATABASE_ID;
+export const projectDatabaseId = process.env.PROJECT_DATABASE_ID;
+export const dictDatabaseId = process.env.DICT_DATABASE_ID;
 
 export const queryNotionDatabase = async (
   databaseId: string
@@ -36,15 +36,19 @@ export const queryNotionDatabase = async (
   return data.results;
 };
 
-export const getPosts = async (): Promise<NotionPage[]> => {
+export const getProjectList = async (): Promise<NotionPage[]> => {
   return queryNotionDatabase(projectDatabaseId!);
 };
 
+export const getDictList = async (): Promise<NotionPage[]> => {
+  return queryNotionDatabase(dictDatabaseId!);
+};
+
 export const getPageBySlug = cache(
-  async (slug: string, type: "project" | "post") => {
+  async (slug: string, type: "project" | "dict") => {
     const databaseIdMap = {
       project: projectDatabaseId!,
-      post: projectDatabaseId!,
+      dict: dictDatabaseId!,
     };
 
     const res = await notionClient.databases.query({
