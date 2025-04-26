@@ -1,24 +1,12 @@
 "use client";
 
+import { navItems } from "@/constants/nav";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
-
-const navItems = [
-  {
-    id: 1,
-    name: "Projects",
-    link: "/",
-  },
-  {
-    id: 2,
-    name: "Dictonary",
-    link: "/dict",
-  },
-];
 
 export default function MobileNavDropdown() {
   const pathname = usePathname();
@@ -29,10 +17,10 @@ export default function MobileNavDropdown() {
     if (item.link === "/") {
       return (
         pathname === "/" ||
-        (!pathname.startsWith("/dict") && pathname.startsWith("/"))
+        (!pathname?.startsWith("/dict") && pathname?.startsWith("/"))
       );
     }
-    return pathname.startsWith(item.link);
+    return pathname?.startsWith(item.link);
   });
 
   return (

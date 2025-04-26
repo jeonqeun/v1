@@ -5,27 +5,16 @@ import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import logo from "../../public/images/logo.svg";
 import { FaGithub } from "react-icons/fa";
-import { FaHashnode, FaBoltLightning } from "react-icons/fa6";
+import { FaHashnode } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import MobileNavDropdown from "./MobileNavDropdown";
-
-const navItems = [
-  {
-    id: 1,
-    name: "Projects",
-    link: "/",
-  },
-  {
-    id: 2,
-    name: "Dictonary",
-    link: "/dict",
-  },
-];
+import { navItems } from "@/constants/nav";
+import { CgGirl } from "react-icons/cg";
 
 export default function Header() {
   const pathname = usePathname();
   const isHome =
-    pathname === "/" || pathname === "" || pathname.startsWith("/?");
+    pathname === "/" || pathname === "" || pathname?.startsWith("/?");
 
   return (
     <header
@@ -72,7 +61,7 @@ export default function Header() {
               target="_blank"
               className="p-2 rounded-[8px] hover:bg-[var(--hover-background)] opacity-75 hover:opacity-100 cursor-pointer hover:text-[#FFD63A]"
             >
-              <FaBoltLightning size={20} />
+              <CgGirl size={24} />
             </Link>
             <Link
               href="https://jeongeun.hashnode.dev"
