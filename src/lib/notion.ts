@@ -27,6 +27,12 @@ export const queryNotionDatabase = async (
       next: { revalidate: 60 },
       body: JSON.stringify({
         sorts: [{ property: "Date", direction: "descending" }],
+        filter: {
+          property: "Status",
+          select: {
+            equals: "public",
+          },
+        },
       }),
     }
   );
