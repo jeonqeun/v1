@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { extractPageProperties } from "@/utils/notion";
-import Card from "./common/Card";
+import Card from "../common/Card";
 import Image from "next/image";
-import ProjectTabs from "./layout/ProjectTabs";
-import profile from "../../public/images/profile.png";
+import ProjectTabs from "../layout/ProjectTabs";
+import profile from "../../../public/images/profile.png";
 import { NotionPage } from "@/types/notion";
 
 interface HomeContentProps {

@@ -1,5 +1,5 @@
 import { getProjectList } from "@/lib/notion";
-import HomeContent from "@/components/HomeContent";
+import HomeContent from "@/components/home/HomeContent";
 
 interface Props {
   searchParams: Promise<Record<string, string>>;
