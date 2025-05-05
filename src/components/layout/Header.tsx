@@ -38,7 +38,7 @@ export default function Header() {
               <FaGithub size={20} />
             </Link>
             <Link
-              href="https://github.com/jeonoeun"
+              href="https://drive.google.com/file/d/1rdIBtaSZKLD3ZKQNGe12uKb5RIFDWjzx/view"
               target="_blank"
               className="p-2 rounded-[8px] hover:bg-[var(--hover-background)] opacity-75 hover:opacity-100 cursor-pointer hover:text-[#FFD63A]"
             >
