@@ -39,22 +39,22 @@ export default function TableOfContents({
   }
 
   return (
-    <div className="hidden lg:block w-[200px] min-w-[200px] max-w-[200px] sticky top-12 self-start text-[14px] m-4 pt-20">
-      <p className="font-semibold pb-2">목차</p>
+    <div className="">
+      <p className="font-semibold pb-2 pl-4">On this page</p>
       <ul>
         {tocItems.map((item) => (
           <li
             key={item.id}
-            className={`opacity-45 transition-all duration-150 rounded-[4px] ${
+            className={`opacity-50 font-medium transition-all duration-300 my-3 border-l-2 ${
               item.type === "header"
-                ? "pl-0"
+                ? "pl-4"
                 : item.type === "sub_header"
-                ? "pl-0"
-                : "pl-3"
+                ? "pl-4"
+                : "pl-8"
             } ${
               activeId === item.id
-                ? "opacity-100 font-medium"
-                : "hover:font-medium hover:opacity-100"
+                ? "opacity-100 text-[#5A5FC3] border-[#5A5FC3]"
+                : "hover:opacity-100 hover:text-[#5A5FC3] border-[var(--background)]"
             }`}
           >
             <button
@@ -70,7 +70,7 @@ export default function TableOfContents({
                   window.scrollTo({ top: y, behavior: "smooth" });
                 }
               }}
-              className="w-full text-left p-1.5 cursor-pointer"
+              className="w-full text-left cursor-pointer"
             >
               {item.text}
             </button>

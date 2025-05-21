@@ -12,6 +12,7 @@
   /* --hover-background: #f7f7f7; */
   --hover-background: #f4f4f5;
   --border-color: #e5e7eb;
+  --notion-text-color: #3c3c43;
 }
 
 .dark {
@@ -19,6 +20,7 @@
   --foreground: #ededed;
   --hover-background: #2c2c2c;
   --border-color: #333333;
+  --notion-text-color: rgba(255, 255, 245, 0.86);
 }
 
 body {
@@ -28,6 +30,15 @@ body {
 
 .notion {
   color: var(--notion-text-color) !important;
+  padding: 0 !important;
+  line-height: 32px !important;
+}
+
+.notion-collection-row {
+  line-height: 24px !important;
+}
+
+.notion-list li {
   padding: 0 !important;
 }
 

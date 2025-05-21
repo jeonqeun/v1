@@ -40,7 +40,7 @@ export default function Header() {
             <Link
               href="https://drive.google.com/file/d/1rdIBtaSZKLD3ZKQNGe12uKb5RIFDWjzx/view"
               target="_blank"
-              className="p-2 rounded-[8px] hover:bg-[var(--hover-background)] opacity-75 hover:opacity-100 cursor-pointer hover:text-[#FFD63A]"
+              className="p-2 rounded-[8px] hover:bg-[var(--hover-background)] opacity-75 hover:opacity-100 cursor-pointer hover:text-[#F67373]"
             >
               <CgGirl size={24} />
             </Link>
