@@ -12,8 +12,16 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { FiGrid } from "react-icons/fi";
+import { IconType } from "react-icons";
 
-export const tabs = [
+export type TabItem = {
+  label: string;
+  id: string;
+  icon: IconType;
+};
+
+// 탭 목록
+export const tabs: TabItem[] = [
   {
     label: "All",
     id: "all",

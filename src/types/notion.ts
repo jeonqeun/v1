@@ -7,7 +7,7 @@ export interface ExtractedPageProperties {
   type?: string;
   demoUrl?: string;
   githubUrl?: string;
-  coverImageUrl: string | null;
+  coverImageUrl?: string | null;
   iconElement?: string | null | undefined;
   color?: string;
 }
