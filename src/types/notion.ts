@@ -10,6 +10,7 @@ export interface ExtractedPageProperties {
   coverImageUrl?: string | null;
   iconElement?: string | null | undefined;
   color?: string;
+  lastEditedDate?: string;
 }
 
 export interface NotionProperty {
@@ -31,6 +32,7 @@ export interface NotionProperty {
   };
   URL?: { url: string };
   Github?: { url: string };
+  LastEdited?: { last_edited_time: string };
 }
 
 export interface NotionPage {

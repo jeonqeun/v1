@@ -15,7 +15,6 @@ import { ExtractedPageProperties, NotionPage } from "@/types/notion";
 import { ExtendedRecordMap } from "notion-types";
 import CategoryModal from "../modal/CategoryModal";
 import TOCModal from "../modal/TOCModal";
-import Breadcrumb from "../common/Breadcrumb";
 import { category } from "@/constants/category";
 
 interface ProjectDetailLayoutProps {
@@ -74,18 +73,22 @@ export default function ProjectDetailLayout({
           <div className="overflow-hidden pt-[32px] md:pt-12 pb-16 md:pb-32">
             <div className="mb-2">
               <div className="flex flex-col gap-3">
-                <Breadcrumb
-                  title={projectData.title}
-                  slug={projectData.slug}
-                  categoryId={projectData.type}
-                />
                 <h1 className="font-semibold text-3xl md:text-4xl leading-snug text-[var(--notion-text-color)]">
                   {projectData.title}
                 </h1>
               </div>
             </div>
             <Renderer recordMap={recordMap} rootPageId={project.id} />
-            <Comment />
+
+            <div>
+              <div className="mt-16 flex items-center justify-end opacity-50 text-sm pb-6">
+                <p>마지막 업데이트: {projectData.lastEditedDate}</p>
+              </div>
+
+              <div className="border-t border-[var(--border-color)] pt-6">
+                <Comment />
+              </div>
+            </div>
           </div>
 
           {/* 모바일에서 TOC 표시 */}

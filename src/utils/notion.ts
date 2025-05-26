@@ -43,6 +43,13 @@ export const extractPageProperties = (
   const demoUrl = item.properties?.URL?.url || "";
   const githubUrl = item.properties?.Github?.url || "";
 
+  const lastEdited =
+    item.properties?.LastEdited?.last_edited_time || "No last edited time";
+
+  const lastEditedDate = new Date(lastEdited).toLocaleString("ko-KR", {
+    timeZone: "Asia/Seoul",
+  });
+
   return {
     title,
     slug,
@@ -55,5 +62,6 @@ export const extractPageProperties = (
     demoUrl,
     githubUrl,
     color,
+    lastEditedDate,
   };
 };
