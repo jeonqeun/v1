@@ -17,16 +17,16 @@ export default function Breadcrumb({
   const matchedCategory = category.find((v) => v.id === categoryId);
 
   return (
-    <div className="hidden xl:flex items-center pb-6 text-[13px] gap-3 text-[#71717A]">
-      <Link href="/">
+    <div className="hidden xl:flex items-center pb-6 text-[13px] gap-3">
+      <Link href="/" className="opacity-50">
         <FaHome />
       </Link>
-      <span className="text-[#E4E4E7]">|</span>
-      <Link href={`/?tag=${matchedCategory?.id}`}>
+      <span className="opacity-15">|</span>
+      <Link href={`/?tag=${matchedCategory?.id}`} className="opacity-50">
         {matchedCategory?.label}
       </Link>
-      <IoIosArrowForward size={14} />
-      <Link href={`/${slug}`} className="text-black">
+      <IoIosArrowForward size={14} className="opacity-50" />
+      <Link href={`/${slug}`} className="text-[var(--foreground)] opacity-100">
         {title}
       </Link>
     </div>
