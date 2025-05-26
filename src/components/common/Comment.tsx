@@ -9,17 +9,25 @@ export default function Comment() {
 
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
-  const theme = isDark ? "github-dark" : "github-light";
+  const theme = isDark ? "dark" : "light";
 
   useEffect(() => {
     if (!commentRef.current || hasMountedRef.current) return;
 
     const script = document.createElement("script");
-    script.src = "https://utteranc.es/client.js";
+    script.src = "https://giscus.app/client.js";
     script.async = true;
-    script.setAttribute("repo", "jeonoeun/my-space");
-    script.setAttribute("issue-term", "pathname");
-    script.setAttribute("theme", theme);
+    script.setAttribute("data-repo", "jeonoeun/my-space");
+    script.setAttribute("data-repo-id", "R_kgDOONnZlg");
+    script.setAttribute("data-category", "Comments");
+    script.setAttribute("data-category-id", "DIC_kwDOONnZls4Cqmr_");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "bottom");
+    script.setAttribute("data-theme", theme);
+    script.setAttribute("data-lang", "ko");
     script.crossOrigin = "anonymous";
 
     commentRef.current.appendChild(script);
@@ -29,19 +37,22 @@ export default function Comment() {
 
   useEffect(() => {
     const iframe = document.querySelector<HTMLIFrameElement>(
-      "iframe.utterances-frame"
+      "iframe.giscus-frame"
     );
     iframe?.contentWindow?.postMessage(
       {
-        type: "set-theme",
-        theme,
+        giscus: {
+          setConfig: {
+            theme,
+          },
+        },
       },
-      "https://utteranc.es"
+      "https://giscus.app"
     );
   }, [theme]);
 
   return (
-    <div className="mt-20 border-t border-[var(--border-color)] pt-8">
+    <div>
       <div ref={commentRef} />
     </div>
   );
