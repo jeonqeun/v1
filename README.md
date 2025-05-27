@@ -1,11 +1,11 @@
 #  My Space
 
-![Image](https://github.com/user-attachments/assets/f568dcf2-d1b5-498c-be8c-3f0d0ef291b4)
+![Image](https://github.com/user-attachments/assets/f8c9a09b-f746-4d30-b69f-8367bcfc104b)
 
 개인 프로젝트와 퍼블리싱 작업을 정리한 포트폴리오 사이트입니다. Next.js, TypeScript, Tailwind CSS를 사용해 반응형 웹을 구현하여, **다양한 디바이스에서 일관된 디자인과 최적화된 사용자 경험을 제공하는 데 집중**했습니다.
 
 ## 프로젝트 개요
-- **작업 기간**: 2025.03 ~ 2025.04
+- **작업 기간**: 2025.03 ~ 2025.05
 - **진행 방식**: 개인 프로젝트 (기여도 100%)
 - **배포 링크**: https://jeongeun.vercel.app
 
