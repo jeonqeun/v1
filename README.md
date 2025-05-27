@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  My Space
 
-## Getting Started
+![Image](https://github.com/user-attachments/assets/f568dcf2-d1b5-498c-be8c-3f0d0ef291b4)
 
-First, run the development server:
+개인 프로젝트와 퍼블리싱 작업을 정리한 포트폴리오 사이트입니다. Next.js, TypeScript, Tailwind CSS를 사용해 반응형 웹을 구현하여, **다양한 디바이스에서 일관된 디자인과 최적화된 사용자 경험을 제공하는 데 집중**했습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 프로젝트 개요
+- **작업 기간**: 2025.03 ~ 2025.04
+- **진행 방식**: 개인 프로젝트 (기여도 100%)
+- **배포 링크**: https://jeongeun.vercel.app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 기술 스택
+![Image](https://github.com/user-attachments/assets/3ba4e5de-c0b0-4fc8-948a-edfc29dcdd75)
+- **Frontend**: Next.js, TypeScript
+- **API**: Notion API
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Deployment**: Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 주요 기능
+- `Tailwind CSS`를 사용해 모바일부터 데스크탑까지 **반응형 레이아웃**을 구성
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Notion API**를 통해 프로젝트 데이터를 불러와 **동적으로 렌더링**
 
-## Learn More
+- 글 구조를 분석해 **사이드 목차가 자동 생성**되며, 현재 위치를 **하이라이팅** (반응형 구현)
 
-To learn more about Next.js, take a look at the following resources:
+- `Tailwind CSS`와 `next-themes`를 사용해 **다크 모드**를 구현
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `Framer Motion`을 사용해 Tab UI 필터링, 아코디언, ScrollProgressBar, ThemeToggle 등 다양한 애니메이션을 구현
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `next/font`를 활용해 **웹 폰트 로딩 성능을 최적화**하고, FOUT 현상을 방지
 
-## Deploy on Vercel
+## 관련 포스팅
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js | 배포 시 발생하는 Promise 타입 에러 해결하기](https://jeongeun.hashnode.dev/nextjs-promise)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 회고
+- 처음으로 SSR을 다루면서, 렌더링 방식에 따라 생기는 에러를 해결해보았다. CSR과 SSR의 차이점, 브라우저 렌더링 과정에 대해 공부할 수 있었다.
+- Tailwind CSS로 반응형 레이아웃을 만들고, 사용자 경험을 최적화하기 위해 사이드 목차, 다크 모드, 애니메이션 등을 구현해봤는데, 진짜 편하고 개발 생산성이 크게 향상되는 것을 느꼈다.
+- TypeScript를 사용하면서 Notion API 데이터 구조를 명확히 정의하고, 타입 안정성을 높이는 경험을 할 수 있었다.
