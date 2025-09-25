@@ -1,24 +1,23 @@
-import { getProjectList } from "@/lib/notion";
-import HomeContent from "@/components/layout/HomeContent";
+import BackgroundGrid from "@/components/home/BackgroundGrid/BackgroundGrid";
+import HomeAboutSection from "@/components/home/HomeAboutSection/HomeAboutSection";
+import HomeHeroSection from "@/components/home/HomeHeroSection";
+import HomePostsSection from "@/components/home/HomePostsSection";
+import HomeProjectsSection from "@/components/home/HomeProjectsSection/HomeProjectsSection";
+import Footer from "@/components/layout/Footer/Footer";
 
-interface Props {
-  searchParams: Promise<Record<string, string>>;
-}
-
-export default async function Home(props: Props) {
-  const projects = await getProjectList();
-
-  const searchParams = await props.searchParams;
-  const selectedTab = searchParams.tag ?? "all";
-
-  const filteredProjects =
-    selectedTab === "all"
-      ? projects
-      : projects.filter((project) =>
-          project.properties?.Tags?.multi_select.some(
-            (tag) => tag.name === selectedTab
-          )
-        );
-
-  return <HomeContent filteredProjects={filteredProjects} />;
+export default function Page() {
+  return (
+    <>
+      <div className="mt-14">
+        <BackgroundGrid />
+        <div className="mx-auto max-w-[1280px] px-4 2xl:max-w-[1500px]">
+          <HomeHeroSection />
+          <HomeAboutSection />
+          <HomeProjectsSection />
+          <HomePostsSection />
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 }
