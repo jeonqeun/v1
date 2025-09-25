@@ -24,13 +24,13 @@ export default function MenuItem({
           return (
             <li
               key={slug}
-              className={`opacity-50 hover:opacity-100 p-2 rounded-md text-[13px] ${
+              className={`rounded-md p-2 text-[13px] opacity-50 hover:bg-[#f7f7f7] hover:opacity-100 hover:dark:bg-[#1A1A1D] ${
                 currentSlug === slug
-                  ? "text-[#5A5FC3] opacity-100 bg-[#F7F7FC] dark:bg-[#1A1A1D] font-medium hover:text-[#5A5FC3] hover:bg-[#F7F7FC] hover:dark:bg-[#1A1A1D]"
-                  : "hover:bg-[var(--hover-background)]"
+                  ? "bg-[#f7f7f7] font-medium text-[var(--primary)] opacity-100 dark:bg-[#1A1A1D]"
+                  : ""
               }`}
             >
-              <Link href={`/${slug}`} className="w-full block px-2">
+              <Link href={`/projects/${slug}`} className="block w-full px-2">
                 {title}
               </Link>
             </li>

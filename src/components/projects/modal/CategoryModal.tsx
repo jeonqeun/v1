@@ -42,7 +42,7 @@ export default function CategoryModal({
               closed: { x: "-100%" },
             }}
             transition={{ ease: "easeInOut", duration: 0.3 }}
-            className="fixed top-0 left-0 min-w-[300px] w-[300px] border-r border-[var(--border-color)] h-screen bg-[var(--background)] text-sm p-8 z-50 block xl:hidden"
+            className="fixed top-0 left-0 min-w-[300px] w-[300px] border-r border-[var(--border-color)] h-screen bg-[var(--background)] text-sm py-8 px-6 z-50 block xl:hidden"
           >
             <Accordion>
               {category.map((item) => (

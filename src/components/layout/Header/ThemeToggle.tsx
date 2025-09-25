@@ -28,12 +28,12 @@ export default function ThemeToggle() {
   return (
     <div
       onClick={toggleTheme}
-      className={`w-[40px] h-[22px] rounded-full p-0.5 bg-[#EFF0F3] dark:bg-[#272930] border border-[#C2C2C4] dark:border-[#3D3F45] hover:border-[#F67373] flex items-center cursor-pointer transition-colors ${
+      className={`relative flex h-[22px] w-[40px] cursor-pointer items-center rounded-full border border-[#C2C2C4] bg-[#EFF0F3] p-0.5 transition-colors hover:border-[var(--primary)] dark:border-[#3D3F45] dark:bg-[#272930] ${
         isDark ? "justify-end" : "justify-start"
       }`}
     >
       <motion.div
-        className="w-[18px] h-[18px] rounded-full bg-white dark:bg-black shadow-md flex items-center justify-center"
+        className="flex h-[18px] w-[18px] items-center justify-center rounded-full bg-white shadow-md dark:bg-black"
         layout
         transition={spring}
       >

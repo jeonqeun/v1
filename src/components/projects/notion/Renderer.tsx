@@ -39,7 +39,7 @@ export default function Renderer({ recordMap, rootPageId }: RendererProps) {
     <div>
       <NotionRenderer
         recordMap={recordMap}
-        darkMode={false}
+        // darkMode={true}
         rootPageId={rootPageId}
         previewImages
         components={{ nextLink: Link, Collection, Code, Equation, Modal, Pdf }}

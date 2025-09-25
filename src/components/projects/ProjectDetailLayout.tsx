@@ -1,21 +1,22 @@
 "use client";
 
-import Accordion from "../accordion/Accordion";
-import AccordionHeader from "../accordion/AccordionHeader";
-import AccordionItem from "../accordion/AccordionItem";
-import AccordionPanel from "../accordion/AccordionPanel";
-import Comment from "../common/Comment";
-import ScrollProgressBar from "../common/ScrollProgressBar";
-import MenuItem from "../accordion/MenuItem";
-import MobileProjectPageHeader from "./MobileProjectPageHeader";
-import Renderer from "../notion/Renderer";
-import TableOfContents from "../notion/TableOfContents";
+import Accordion from "./accordion/Accordion";
+import AccordionHeader from "./accordion/AccordionHeader";
+import AccordionItem from "./accordion/AccordionItem";
+import AccordionPanel from "./accordion/AccordionPanel";
+import Comment from "./Comment";
+import ScrollProgressBar from "./ScrollProgressBar";
+import MenuItem from "./accordion/MenuItem";
+import Renderer from "./notion/Renderer";
+import TableOfContents from "./notion/TableOfContents";
 import { useState } from "react";
 import { ExtractedPageProperties, NotionPage } from "@/types/notion";
 import { ExtendedRecordMap } from "notion-types";
-import CategoryModal from "../modal/CategoryModal";
-import TOCModal from "../modal/TOCModal";
 import { category } from "@/constants/category";
+import Image from "next/image";
+import MobileProjectPageHeader from "./MobileProjectPageHeader";
+import CategoryModal from "./modal/CategoryModal";
+import TOCModal from "./modal/TOCModal";
 
 interface ProjectDetailLayoutProps {
   project: NotionPage;
@@ -32,15 +33,16 @@ export default function ProjectDetailLayout({
 }: ProjectDetailLayoutProps) {
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+
   return (
     <>
       <ScrollProgressBar />
-      <div className="max-w-[1500px] mx-auto mt-[60px]">
+      <div className="mx-auto mt-14 max-w-[1500px]">
         <MobileProjectPageHeader
           onToggleToc={() => setIsTocOpen((prev) => !prev)}
           onToggleCategory={() => setIsCategoryOpen((prev) => !prev)}
         />
-        <div className="md:flex justify-center gap-16 px-4">
+        <div className="justify-center gap-16 px-4 md:flex">
           {/* 모바일에서 보이는 CategoryModal */}
           <CategoryModal
             isOpen={isCategoryOpen}
@@ -50,8 +52,8 @@ export default function ProjectDetailLayout({
           />
 
           {/* 데스크탑에서 보이는 Category */}
-          <div className="sticky top-0 h-screen border-r border-[var(--border-color)] pr-4 hidden xl:block">
-            <div className="max-w-[224px] min-w-[224px] w-[224px] sticky top-[108px] self-start text-sm">
+          <div className="sticky top-14 hidden h-screen border-r border-[var(--border-color)] pr-4 xl:block">
+            <div className="sticky top-0 w-[224px] max-w-[224px] min-w-[224px] self-start pt-8 text-sm md:pt-12">
               <Accordion>
                 {category.map((item) => (
                   <AccordionItem key={item.id}>
@@ -70,18 +72,29 @@ export default function ProjectDetailLayout({
           </div>
 
           {/* Notion Content */}
-          <div className="overflow-hidden pt-[32px] md:pt-12 pb-16 md:pb-32">
-            <div className="mb-2">
-              <div className="flex flex-col gap-3">
-                <h1 className="font-semibold text-3xl md:text-4xl leading-snug text-[var(--notion-text-color)]">
+          <div className="overflow-hidden pt-8 pb-16 md:pt-12 md:pb-32">
+            <div className="mb-6">
+              <div className="flex flex-col">
+                <h1 className="mb-6 text-3xl leading-snug font-semibold text-[var(--notion-text-color)] md:text-4xl">
                   {projectData.title}
                 </h1>
+                {projectData.coverImageUrl && (
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl">
+                    <Image
+                      src={projectData.coverImageUrl}
+                      alt="프로젝트 커버"
+                      fill
+                      priority
+                      className="object-cover"
+                    />
+                  </div>
+                )}
               </div>
             </div>
             <Renderer recordMap={recordMap} rootPageId={project.id} />
 
             <div>
-              <div className="mt-16 flex items-center justify-end opacity-50 text-sm pb-6">
+              <div className="mt-16 flex items-center justify-end pb-6 text-sm opacity-50">
                 <p>마지막 업데이트: {projectData.lastEditedDate}</p>
               </div>
 
@@ -99,7 +112,7 @@ export default function ProjectDetailLayout({
           />
 
           {/* 데스크탑 TOC */}
-          <div className="hidden lg:block sticky top-[168px] xl:top-[108px] self-start border-l border-[var(--border-color)] w-[224px] min-w-[224px] max-w-[224px] text-[14px]">
+          <div className="sticky top-[168px] hidden w-[224px] max-w-[224px] min-w-[224px] self-start border-l border-[var(--border-color)] text-[14px] lg:block xl:top-[108px]">
             <TableOfContents recordMap={recordMap} />
           </div>
         </div>

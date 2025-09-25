@@ -31,12 +31,7 @@ export default function TOCModal({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-28 left-1/2 -translate-x-1/2 z-30 text-sm w-11/12 max-w-[600px] rounded-md p-4 pt-6 
-            border border-[#c2c2c4] dark:border-[#3a3a3a] 
-            bg-[#FAFAFA] dark:bg-[#1F1F1F] 
-            text-black dark:text-white 
-            shadow-md dark:shadow-[0_2px_10px_rgba(0,0,0,0.6)] 
-            block lg:hidden"
+            className="fixed top-28 left-1/2 z-30 block w-11/12 max-w-[600px] -translate-x-1/2 rounded-md border border-[#c2c2c4] bg-[#FAFAFA] p-4 pt-6 text-sm text-black shadow-md lg:hidden dark:border-[#3a3a3a] dark:bg-[#1F1F1F] dark:text-white dark:shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
           >
             <TableOfContents recordMap={recordMap} />
           </motion.div>

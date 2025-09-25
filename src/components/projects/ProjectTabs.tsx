@@ -39,11 +39,16 @@ export default function ProjectTabs() {
   }, [selectedTabId]);
 
   return (
-    <div className="sticky top-[60px] z-40 bg-[var(--background)] w-full flex flex-col border-b border-[var(--border-color)]">
-      <div className="w-full items-start justify-center flex px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
+      className="sticky top-14 z-40 flex w-full flex-col border-b border-[var(--border-color)] bg-[var(--background)]"
+    >
+      <div className="flex w-full items-start justify-center px-4">
         <nav
           ref={navRef}
-          className="flex overflow-x-auto whitespace-nowrap no-scrollbar relative z-0 py-2"
+          className="no-scrollbar relative z-0 flex overflow-x-auto py-2 whitespace-nowrap"
         >
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -54,7 +59,7 @@ export default function ProjectTabs() {
                 key={tab.id}
                 href={`?tag=${tab.id}`}
                 scroll={false}
-                className={`text-sm font-medium relative rounded-md flex items-center gap-2 py-2 px-3 z-20 select-none transition-opacity hover:opacity-100 hover:bg-[var(--hover-background)] ${
+                className={`relative z-20 flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-opacity select-none hover:bg-[var(--hover-background)] hover:opacity-100 ${
                   isSelected ? "opacity-100" : "opacity-50"
                 }`}
                 data-tab-id={tab.id}
@@ -67,7 +72,7 @@ export default function ProjectTabs() {
 
           {indicator && (
             <motion.div
-              className="absolute z-10 bottom-0 left-0 h-[2px] bg-[var(--foreground)]"
+              className="absolute bottom-0 left-0 z-10 h-[2px] bg-[var(--foreground)]"
               initial={false}
               animate={{
                 width: indicator.width,
@@ -79,6 +84,6 @@ export default function ProjectTabs() {
           )}
         </nav>
       </div>
-    </div>
+    </motion.div>
   );
 }

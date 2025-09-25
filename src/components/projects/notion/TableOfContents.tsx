@@ -39,7 +39,7 @@ export default function TableOfContents({
   }
 
   return (
-    <div className="">
+    <div>
       <p className="font-semibold pb-2 pl-4">On this page</p>
       <ul>
         {tocItems.map((item) => (
@@ -53,8 +53,8 @@ export default function TableOfContents({
                 : "pl-8"
             } ${
               activeId === item.id
-                ? "opacity-100 text-[#5A5FC3] border-[#5A5FC3]"
-                : "hover:opacity-100 hover:text-[#5A5FC3] border-[var(--background)]"
+                ? "opacity-100 text-[var(--primary)] border-[var(--primary)]"
+                : "hover:opacity-100 hover:text-[var(--primary)] border-[var(--background)]"
             }`}
           >
             <button
