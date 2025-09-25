@@ -4,13 +4,7 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { BsGlobe } from "react-icons/bs";
 import { BiCodeBlock } from "react-icons/bi";
 import { GiConsoleController } from "react-icons/gi";
-import {
-  SiTailwindcss,
-  SiFirebase,
-  SiReactquery,
-  SiFramer,
-  SiTypescript,
-} from "react-icons/si";
+import { SiTailwindcss, SiTypescript } from "react-icons/si";
 import { FiGrid } from "react-icons/fi";
 import { IconType } from "react-icons";
 
@@ -33,12 +27,12 @@ export const tabs: TabItem[] = [
     icon: AiFillStar,
   },
   {
-    label: "Web Publishing",
+    label: "웹 퍼블리싱",
     id: "web-publishing",
     icon: FaPalette,
   },
   {
-    label: "Responsive",
+    label: "반응형",
     id: "responsive",
     icon: BsGlobe,
   },
@@ -56,21 +50,6 @@ export const tabs: TabItem[] = [
     label: "TypeScript",
     id: "typescript",
     icon: SiTypescript,
-  },
-  {
-    label: "Firebase",
-    id: "firebase",
-    icon: SiFirebase,
-  },
-  {
-    label: "TanStack Query",
-    id: "tanstack-query",
-    icon: SiReactquery,
-  },
-  {
-    label: "Framer Motion",
-    id: "framer-motion",
-    icon: SiFramer,
   },
   {
     label: "Tailwind CSS",
