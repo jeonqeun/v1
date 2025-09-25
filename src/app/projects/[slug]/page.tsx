@@ -1,4 +1,4 @@
-import ProjectDetailLayout from "@/components/layout/ProjectDetailLayout";
+import ProjectDetailLayout from "@/components/projects/ProjectDetailLayout";
 import { getPageBySlug, getPageData, getProjectList } from "@/lib/notion";
 import { extractPageProperties } from "@/utils/notion";
 import { Metadata } from "next";
