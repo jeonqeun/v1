@@ -8,9 +8,9 @@ import Footer from "@/components/layout/Footer/Footer";
 export default function Page() {
   return (
     <>
-      <div className="mt-14">
+      <div className="relative mt-14">
         <BackgroundGrid />
-        <div className="mx-auto max-w-[1280px] px-4 2xl:max-w-[1500px]">
+        <div className="relative z-10 mx-auto max-w-[1280px] px-4 2xl:max-w-[1500px]">
           <HomeHeroSection />
           <HomeAboutSection />
           <HomeProjectsSection />
