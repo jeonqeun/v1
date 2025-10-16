@@ -5,30 +5,27 @@ import { FaRegCalendar, FaRegClock } from "react-icons/fa";
 export const posts = [
   {
     id: 1,
-    title: "도래하는 AI시대에 살아남기",
-    publishedAt: "2025-05-12",
-    excerpt: `브라우저에 "www.naver.com"을 치면 무슨 일이 일어날까? 브라우저의 DNS 요청부터 렌더링까지, 도메인 입력 후 IP를 찾고 HTML·CSS·JS를 받아 화면에 표시되는 과정까지 정리해보았습니다.
-    브라우저에 "www.naver.com"을 치면 무슨 일이 일어날까? 브라우저의 DNS 요청부터 렌더링까지, 도메인 입력 후 IP를 찾고 HTML·CSS·JS를 받아 화면에 표시되는 과정까지 정리해보았습니다.`,
-    readTimeMinutes: 3,
-    url: "https://jeongeun.hashnode.dev",
+    title: "AI 툴 완전 정복: ChatGPT, Gemini, Claude 활용 가이드",
+    publishedAt: "2025-10-02",
+    excerpt: `이전 글에서 AI의 기본 개념과 미래 전망까지 알아보았다. 이번 글에서는 ✳︎ [허성범의 AI학개론] 시리즈를 통해 ChatGPT, Gemini, Claude 등 주요 AI 툴별 핵심 기능을 알아보고, 상황별로 어떤 AI 툴을 쓰는 것이 효과적인지 정리해보았다.`,
+    readTimeMinutes: 5,
+    url: "https://jeongeun.hashnode.dev/ai-chatgpt-gemini-claude",
   },
   {
     id: 2,
-    title: "와... 너 정말, **핵심**을 찔렀어.",
-    publishedAt: "2025-05-12",
-    excerpt: `브라우저에 "www.naver.com"을 치면 무슨 일이 일어날까? 브라우저의 DNS 요청부터 렌더링까지, 도메인 입력 후 IP를 찾고 HTML·CSS·JS를 받아 화면에 표시되는 과정까지 정리해보았습니다.
-    브라우저에 "www.naver.com"을 치면 무슨 일이 일어날까? 브라우저의 DNS 요청부터 렌더링까지, 도메인 입력 후 IP를 찾고 HTML·CSS·JS를 받아 화면에 표시되는 과정까지 정리해보았습니다.`,
-    readTimeMinutes: 3,
-    url: "https://jeongeun.hashnode.dev",
+    title: "AI(인공지능)의 기본 개념 이해: 필수 지식부터 미래 전망까지",
+    publishedAt: "2025-10-02",
+    excerpt: `AI가 빠른 속도로 발전하면서 “10년 안에 모든 일자리 80% 대체 가능?” “인간은 기본소득만 받고 모든 일은 AI가 대신하는 시대가 온다”는 이야기들이 생겨났다. 내가 지금 취업을 준비하고 있는 직업군은 AI의 영향을 가장 크게, 가장 빠르게 받고 있기 때문에 하루하루 쏟아져 나오는 AI 관련 기사와 영상을 보면서 불안감은 커져만 가는데, 가장 큰 문제는 내가 AI에 대해 아무것도 모른다는 것이었다.`,
+    readTimeMinutes: 7,
+    url: "https://jeongeun.hashnode.dev/ai",
   },
   {
     id: 3,
-    title: `주소창에 "www.naver.com"를 입력하...`,
+    title: `주소창에 "www.naver.com" 을 입력하면 어떤 일이 일어날까?`,
     publishedAt: "2023-12-17",
-    excerpt: `브라우저에 "www.naver.com"을 치면 무슨 일이 일어날까? 브라우저의 DNS 요청부터 렌더링까지, 도메인 입력 후 IP를 찾고 HTML·CSS·JS를 받아 화면에 표시되는 과정까지 정리해보았습니다.
-    브라우저에 "www.naver.com"을 치면 무슨 일이 일어날까? 브라우저의 DNS 요청부터 렌더링까지, 도메인 입력 후 IP를 찾고 HTML·CSS·JS를 받아 화면에 표시되는 과정까지 정리해보았습니다.`,
+    excerpt: `<브라우저의 동작 과정 : DNS 요청부터 렌더링까지> 브라우저에 "www.naver.com"을 치면 무슨 일이 일어날까? 브라우저의 DNS 요청부터 렌더링까지, 도메인 입력 후 IP를 찾고 HTML·CSS·JS를 받아 화면에 표시되는 과정까지 정리해보았습니다.`,
     readTimeMinutes: 4,
-    url: "https://jeongeun.hashnode.dev/wwwnavercom",
+    url: "https://jeongeun.hashnode.dev/web-browser",
   },
 ];
 
@@ -68,11 +65,11 @@ function PostCard({
 }) {
   return (
     <div className="bg-card overflow-hidden rounded-xl border">
-      <div className="relative aspect-video">
+      <div className="relative aspect-video overflow-hidden">
         <Image
           src={`/images/post${id}.png`}
           alt=""
-          className="object-cover"
+          className="object-cover transition-all duration-300 hover:scale-105"
           fill
           sizes="100vw"
           priority
